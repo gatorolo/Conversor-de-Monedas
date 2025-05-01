@@ -12,9 +12,9 @@ public class ConvertirMoneda {
         System.out.println("Ingrese la cantidad de " + from);
         cantidad = Double.parseDouble(scanner.nextLine());
         cantidadConvertida = cantidad * moneda.conversion_rate();
-        System.out.println("La Tasa de conversión de hoy para " +to+ "\n 1 "
-                + from + " = " + moneda.conversion_rate());
-        System.out.println(cantidad + " " + from + " = " + cantidadConvertida);
+        System.out.println("La Tasa de conversión de hoy para " +to+ "📈\n 1 "
+                + from + " = " + moneda.conversion_rate()+"✔");
+        System.out.println(cantidad + " " + from + " = " + cantidadConvertida+"✔");
     }
 
     public static void convertirMoneda(ConsultarMoneda consulta, Scanner scanner) {
