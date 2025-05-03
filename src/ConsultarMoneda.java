@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class ConsultarMoneda {
 
     public Moneda buscarMoneda(String from, String to) {
@@ -18,10 +19,8 @@ public class ConsultarMoneda {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), Moneda.class);
-
-        } catch (Exception e) {
-            throw new RuntimeException("Moneda no Encontrada");
+        }catch (Exception e) {
+            throw new RuntimeException("Moneda No Encontrada");
         }
-
     }
 }

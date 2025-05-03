@@ -8,7 +8,6 @@ public class Main {
 
         int option;
 
-
         do {
             System.out.println("-------------------------------");
             System.out.println("Ingresa la opción que deseas");
@@ -188,7 +187,7 @@ public class Main {
                     ConvertirMoneda.convertirMoneda(consulta, scanner);
                     break;
                 case 9:
-                    System.out.println("Gracias por utilizar ExchangeRateAPI 👍");
+                    System.out.println("Gracias por utilizar ExchangeRateAPI👍");
                     break;
                 default:
                     System.out.println("Opción inválida.");

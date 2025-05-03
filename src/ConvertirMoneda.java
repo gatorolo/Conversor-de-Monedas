@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+@SuppressWarnings("ALL")
 public class ConvertirMoneda {
 
     public static void convertir(String from, String to, ConsultarMoneda consulta, Scanner scanner) {
@@ -13,8 +14,8 @@ public class ConvertirMoneda {
         cantidad = Double.parseDouble(scanner.nextLine());
         cantidadConvertida = cantidad * moneda.conversion_rate();
         System.out.println("La Tasa de conversión de hoy para " +to+ "📈\n 1 "
-                + from + " = " + moneda.conversion_rate()+"✔");
-        System.out.println(cantidad + " " + from + " = " + cantidadConvertida+"✔");
+                + from + " = " + moneda.conversion_rate()+"✔ Checked");
+        System.out.println(cantidad + " " + from + " = " + cantidadConvertida + " " + to +"✔");
     }
 
     public static void convertirMoneda(ConsultarMoneda consulta, Scanner scanner) {
@@ -25,6 +26,4 @@ public class ConvertirMoneda {
         String to = scanner.nextLine().toUpperCase();
         convertir(from, to, consulta, scanner);
     }
-
-
 }
