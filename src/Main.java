@@ -7,18 +7,7 @@ public class Main {
         ConsultarMoneda consulta = new ConsultarMoneda();
 
         int option;
-
-        do {
-            System.out.println("-------------------------------");
-            System.out.println("Ingresa la opción que deseas");
-            System.out.println("1. Convertir");
-            System.out.println("9. Salir");
-            option = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (option) {
-                case 1:
-                    System.out.println("""
+        System.out.println("""
                             "conversion_rates Keys 🤑":
                               "USD":Usa,
                               "AED": United Arab Emirates,
@@ -184,6 +173,16 @@ public class Main {
                               "ZMW":Zambia,
                               "ZWL":Zimbabwe
                             """);
+        do {
+            System.out.println("-------------------------------");
+            System.out.println("Ingresa la opción que deseas");
+            System.out.println("1. Convertir");
+            System.out.println("9. Salir");
+            option = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (option) {
+                case 1:
                     ConvertirMoneda.convertirMoneda(consulta, scanner);
                     break;
                 case 9:
