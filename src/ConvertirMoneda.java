@@ -62,8 +62,8 @@ public class ConvertirMoneda {
 
             cantidadConvertida = cantidad * moneda.conversion_rate();
             System.out.println("La Tasa de conversión de hoy para " + to + "📈\n 1 "
-                    + from + " = " + moneda.conversion_rate() + "✔ Checked");
-            System.out.println(cantidad + " " + from + " = " + cantidadConvertida + " " + to + "✔");
+                    + from + " = " + moneda.conversion_rate()+ " ✔" + " Checked");
+            System.out.println(cantidad + " " + from + " = " + cantidadConvertida + "✔" + " " + to );
 
         } catch (RuntimeException e) {
             System.out.println("Error: Ocurrió un problema al obtener la información de la moneda. Por favor, inténtelo de nuevo más tarde.");
