@@ -50,11 +50,11 @@ public class ConvertirMoneda {
             try {
                 cantidad = scanner.nextDouble();
                 if (cantidad <= 0) {
-                    System.out.println("Error: La cantidad debe ser mayor que cero.");
+                    System.out.println("---Error: La cantidad debe ser mayor que cero---❌\n");
                     return; // Salimos del método si la cantidad no es válida
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Error: La cantidad ingresada no es un número válido.");
+                System.out.println("---Error: La cantidad ingresada no es un número válido---❌\n");
                 scanner.next(); // Limpiamos el buffer del scanner
                 return; // Salimos del método si la entrada no es un número
             }
@@ -67,7 +67,7 @@ public class ConvertirMoneda {
 
         } catch (RuntimeException e) {
             System.out.println("Error: Ocurrió un problema al obtener la información de la moneda. Por favor, inténtelo de nuevo más tarde.");
-            System.out.println("Detalles del error: " + e.getMessage()); // Opcional: para debugging
+            System.out.println("Detalles del error: " + e.getMessage());
         }
     }
 
@@ -82,7 +82,7 @@ public class ConvertirMoneda {
             if (!from.isEmpty()) {
                 validInput = true;
             } else {
-                System.out.println("Error: El código de la moneda no puede estar vacío.");
+                System.out.println("---Error: El código de la moneda no puede estar vacío!---❌\n");
             }
         }
 
@@ -93,7 +93,7 @@ public class ConvertirMoneda {
             if (!to.isEmpty()) {
                 validInput = true;
             } else {
-                System.out.println("Error: El código de la moneda destino no puede estar vacío.");
+                System.out.println("---Error: El código de la moneda destino no puede estar vacío!---❌\n");
             }
         }
 
