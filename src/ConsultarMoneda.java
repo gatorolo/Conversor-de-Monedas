@@ -24,8 +24,7 @@ public class ConsultarMoneda {
                 throw new RuntimeException("Moneda no válida o no encontrada.");
             }
 
-            Moneda moneda = new Gson().fromJson(response.body(), Moneda.class);
-            return moneda;
+            return new Gson().fromJson(response.body(), Moneda.class);
 
         } catch (Exception e) {
             throw new RuntimeException("Error al obtener la tasa de cambio: " + e.getMessage());
