@@ -189,7 +189,7 @@ public class Main {
                     System.out.println("Gracias por utilizar ExchangeRateAPI👍");
                     break;
                 default:
-                    System.out.println("Opción inválida.");
+                    System.out.println("Opción inválida❌");
             }
         } while (option != 9);
         scanner.close();

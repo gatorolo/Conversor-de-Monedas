@@ -67,7 +67,7 @@ public class ConvertirMoneda {
 
         } catch (RuntimeException e) {
             System.out.println("Error: Ocurrió un problema al obtener la información de la moneda. Por favor, inténtelo de nuevo más tarde.");
-            System.out.println("Detalles del error: " + e.getMessage());
+            System.out.println("Detalles del error: Ingrese una Moneda Válida");
         }
     }
 

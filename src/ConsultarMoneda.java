@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.InputMismatchException;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class ConsultarMoneda {
@@ -50,24 +51,27 @@ public class ConsultarMoneda {
             if (jsonResponse.has("result") && jsonResponse.get("result").getAsString().equals("error")) {
                 if (jsonResponse.has("error-type")) {
                     String errorType = jsonResponse.get("error-type").getAsString();
-                    if (errorType.equals("unsupported-code")) {
-                        throw new RuntimeException("Error -> Uno o ambos códigos de moneda no son soportados.");
-                    } else if (errorType.equals("invalid-key")) {
-                        throw new RuntimeException("Error -> La clave de API proporcionada no es válida.");
-                    } else if (errorType.equals("malformed-request")) {
-                        throw new RuntimeException("Error -> La solicitud a la API está malformada.");
-                    } else {
-                        throw new RuntimeException("Error al obtener la tasa de cambio: Servicio reportó un error: " + errorType);
+                    switch (errorType) {
+                        case "unsupported-code" ->
+                                throw new RuntimeException("Error -> Uno o ambos códigos de moneda no son soportados❌");
+                        case "invalid-key" ->
+                                throw new RuntimeException("Error -> La clave de API proporcionada no es válida❌");
+                        case "malformed-request" ->
+                                throw new RuntimeException("Error -> La solicitud a la API está malformada❌");
+                        case "InputMismatchException" ->
+                                throw new RuntimeException("---Error: La cantidad ingresada no es un número válido---❌\n");
+                        default ->
+                                throw new RuntimeException("Error al obtener la tasa de cambio: Servicio reportó un error: " + errorType + "❌");
                     }
                 } else {
-                    throw new RuntimeException("Error desconocido al obtener la tasa de cambio desde el servicio.");
+                    throw new RuntimeException("Error desconocido al obtener la tasa de cambio desde el servicio❌");
                 }
             }
 
             return gson.fromJson(responseBody, Moneda.class);
 
         } catch (Exception e) {
-            throw new RuntimeException("Error al obtener la tasa de cambio -> Clave de Moneda no encontrada en base de datos");
+            throw new RuntimeException("Error al obtener la tasa de cambio -> Clave de Moneda no encontrada en base de datos o Malformada❌");
         }
     }
 }
