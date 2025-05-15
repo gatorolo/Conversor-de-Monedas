@@ -35,15 +35,15 @@ import java.util.Scanner;
 public class ConvertirMoneda {
 
     public static void convertir(String from, String to, ConsultarMoneda consulta, Scanner scanner) {
-        double cantidad = 0; // Inicializamos en 0 para tener un valor por defecto
+        double cantidad = 0;
         double cantidadConvertida;
-        Moneda moneda = null; // Inicializamos en null
+        Moneda moneda = null;
 
         try {
             moneda = consulta.buscarMoneda(from, to);
             if (moneda == null) {
                 System.out.println("Error: No se pudo encontrar información para la conversión de " + from + " a " + to + ".");
-                return; // Salimos del método si no se encontró la moneda
+                return;
             }
 
             System.out.println("Ingrese la cantidad de " + from);
@@ -51,14 +51,14 @@ public class ConvertirMoneda {
                 cantidad = scanner.nextDouble();
                 if (cantidad <= 0) {
                     System.out.println("---Error: La cantidad debe ser mayor que cero---❌\n");
-                    return; // Salimos del método si la cantidad no es válida
+                    return;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("---Error: La cantidad ingresada no es un número válido---❌\n");
-                scanner.next(); // Limpiamos el buffer del scanner
-                return; // Salimos del método si la entrada no es un número
+                scanner.next();
+                return;
             }
-            scanner.nextLine(); // Consumir la nueva línea pendiente
+            scanner.nextLine();
 
             cantidadConvertida = cantidad * moneda.conversion_rate();
             System.out.println("La Tasa de conversión de hoy para " + to + "📈\n 1 "
@@ -74,8 +74,8 @@ public class ConvertirMoneda {
     public static void convertirMoneda(ConsultarMoneda consulta, Scanner scanner) {
         String from = "";
         String to = "";
-        boolean validInput = false;
 
+        boolean validInput = false;
         while (!validInput) {
             System.out.println("Ingrese el Código de la moneda a convertir (ej: USD)");
             from = scanner.nextLine().toUpperCase();

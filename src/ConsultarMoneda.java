@@ -59,7 +59,7 @@ public class ConsultarMoneda {
                         case "malformed-request" ->
                                 throw new RuntimeException("Error -> La solicitud a la API está malformada❌");
                         case "InputMismatchException" ->
-                                throw new RuntimeException("---Error: La cantidad ingresada no es un número válido---❌\n");
+                                throw new RuntimeException("---Error: La cantidad ingresada no es un número válido---❌");
                         default ->
                                 throw new RuntimeException("Error al obtener la tasa de cambio: Servicio reportó un error: " + errorType + "❌");
                     }
